@@ -108,7 +108,9 @@ def main(_):
     predictor = pred_util.MeshPredictor(opts)
     outputs = predictor.predict(batch)
     
-    save_obj('/content/test.obj', outputs['verts'][0], predictor.faces, textures=outputs['texture'][0])
+    print(predictor.faces.shape)
+    
+    save_obj('/content/test.obj', outputs['verts'][0], predictor.faces[0], textures=outputs['texture'][0])
 
     # This is resolution
     renderer = predictor.vis_rend
