@@ -22,6 +22,7 @@ from nnutils import test_utils
 from nnutils import predictor as pred_util
 from utils import image as img_util
 
+import cv2 as cv
 from neural_renderer.save_obj import save_obj
 
 flags.DEFINE_string('img_path', 'data/im1963.jpg', 'Image to run')
@@ -67,6 +68,7 @@ def visualize(img, outputs, renderer):
         vert, cam, angle=60, axis=[1, 0, 0], texture=texture)
 
     img = np.transpose(img, (1, 2, 0))
+    cv.imwrite('/content/img_01.jpg', img)
     import matplotlib.pyplot as plt
     plt.ion()
     plt.figure(1)
