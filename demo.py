@@ -68,7 +68,8 @@ def visualize(img, outputs, renderer):
         vert, cam, angle=60, axis=[1, 0, 0], texture=texture)
 
     img = np.transpose(img, (1, 2, 0))
-    cv.imwrite('/content/img_01.jpg', img)
+    cv.imwrite('/content/img_01.jpg', vp1)
+    io.imsave('/content/img_02.jpg', vp1)
     import matplotlib.pyplot as plt
     plt.ion()
     plt.figure(1)
