@@ -22,6 +22,7 @@ from nnutils import test_utils
 from nnutils import predictor as pred_util
 from utils import image as img_util
 
+from neural_renderer.save_obj import save_obj
 
 flags.DEFINE_string('img_path', 'data/im1963.jpg', 'Image to run')
 flags.DEFINE_integer('img_size', 256, 'image size the network was trained on.')
@@ -106,6 +107,8 @@ def main(_):
 
     predictor = pred_util.MeshPredictor(opts)
     outputs = predictor.predict(batch)
+    
+    save_obj('/content/test.obj', outputs['verts'][0], predictor.faces, textures=outputs['texture'][0])
 
     # This is resolution
     renderer = predictor.vis_rend
